@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-04-30T21:52:28+02:00",
+  "id": "first_codelab",
+  "duration": 0,
+  "title": "小试牛刀",
+  "authors": "Nthily",
+  "summary": "备份",
+  "source": "demo.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android"
+  ],
+  "tags": [
+    "android"
+  ],
+  "feedback": "https://github.com/Nthily",
+  "url": "first_codelab"
+}
