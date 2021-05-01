@@ -1,30 +1,47 @@
-summary: 备份
-id: 小试牛刀1
-categories: Android
-tags: android
-status: Published
-authors: Nthily
-Feedback Link: https://github.com/Nthily
 
-# 小试牛刀
+<!doctype html>
 
-## 概述
-Duration: 1
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>小试牛刀</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="小试牛刀1"
+                  title="小试牛刀"
+                  environment="web"
+                  feedback-link="https://github.com/Nthily">
+    
+      <google-codelab-step label="概述" duration="1">
+        <h2 is-upgraded>本节的 Codelabs 我可以学到什么？</h2>
+<ul>
+<li><strong>这节 Codelabs 你将会学到如何制作出以下这个界面</strong></li>
+<li><strong>学习简单的状态管理</strong></li>
+</ul>
+<p class="image-container"><img src="img\3bc611c3d2970405.png"></p>
+<aside class="special"><p>虽然但是，这个风格并不符合 <code>Material Design</code> 的标准，但是好玩（bushi</p>
+</aside>
 
-### 本节的 Codelabs 我可以学到什么？
 
-- **这节 Codelabs 你将会学到如何制作出以下这个界面**
-- **学习简单的状态管理**
-
-![](assets/小试牛刀1/demo.png)
-
-Positive
-: 虽然但是，这个风格并不符合 `Material Design` 的标准，但是好玩（bushi
-
-## 第一步
-
-```kotlin
-package com.compose.examples
+      </google-codelab-step>
+    
+      <google-codelab-step label="第一步" duration="0">
+        <pre><code language="language-kotlin" class="language-kotlin">package com.compose.examples
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Build
@@ -108,13 +125,13 @@ fun Demo() {
                     Content{
                         Spacer(Modifier.padding(vertical = 8.dp))
                         Text(
-                            text =  "东临碣石，以观沧海。\n" +
-                                    "水何澹澹，山岛竦峙。\n" +
-                                    "树木丛生，百草丰茂。\n" +
-                                    "秋风萧瑟，洪波涌起。\n" +
-                                    "日月之行，若出其中；\n" +
-                                    "星汉灿烂，若出其里。\n" +
-                                    "幸甚至哉，歌以咏志。",
+                            text =  &#34;东临碣石，以观沧海。\n&#34; +
+                                    &#34;水何澹澹，山岛竦峙。\n&#34; +
+                                    &#34;树木丛生，百草丰茂。\n&#34; +
+                                    &#34;秋风萧瑟，洪波涌起。\n&#34; +
+                                    &#34;日月之行，若出其中；\n&#34; +
+                                    &#34;星汉灿烂，若出其里。\n&#34; +
+                                    &#34;幸甚至哉，歌以咏志。&#34;,
                             fontWeight = FontWeight.W700,
                             style = MaterialTheme.typography.body1,
                             textAlign = textAlign,
@@ -188,7 +205,7 @@ fun TopButtons(){
 @Composable
 fun Title(){
     Text(
-        text = "观沧海",
+        text = &#34;观沧海&#34;,
         fontWeight = FontWeight.W900,
     )
 }
@@ -196,9 +213,23 @@ fun Title(){
 
 @Composable
 fun Content(
-    content: @Composable()() -> Unit
+    content: @Composable()() -&gt; Unit
 ){
     Title()
     content()
 }
-```
+</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
