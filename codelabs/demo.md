@@ -8,8 +8,19 @@ Feedback Link: https://github.com/Nthily
 
 # 小试牛刀
 
-## 标题
-```kotlin
+## 概述
+```java
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ColumnDemo()
+        }
+    }
+}
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,3 +40,7 @@ fun ColumnDemo() {
     }
 }
 ```
+
+## 第一步
+
+### 啦啦啦啦

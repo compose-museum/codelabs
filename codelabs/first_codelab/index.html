@@ -27,8 +27,18 @@
                   environment="web"
                   feedback-link="https://github.com/Nthily">
     
-      <google-codelab-step label="标题" duration="0">
-        <pre><code language="language-kotlin" class="language-kotlin">class MainActivity : ComponentActivity() {
+      <google-codelab-step label="概述" duration="0">
+        <pre><code language="language-java" class="language-java">class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ColumnDemo()
+        }
+    }
+}
+
+class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +57,12 @@ fun ColumnDemo() {
     }
 }
 </code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="第一步" duration="0">
+        <h2 is-upgraded>啦啦啦啦</h2>
 
 
       </google-codelab-step>
