@@ -25,7 +25,7 @@
                   id="小试牛刀1"
                   title="小试牛刀"
                   environment="web"
-                  feedback-link="https://github.com/compose-museum/codelabs/issues/new">
+                  feedback-link="https://github.com/Nthily">
     
       <google-codelab-step label="概述" duration="1">
         <h2 is-upgraded>本节的 Codelabs 我可以学到什么？</h2>
@@ -34,189 +34,59 @@
 <li><strong>学习简单的状态管理</strong></li>
 </ul>
 <p class="image-container"><img src="img\3bc611c3d2970405.png"></p>
-<aside class="special"><p>虽然但是，这个风格并不符合 <code>Material Design</code> 的标准，但是好玩（bushi</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="定位布局" duration="0">
+        <h3 is-upgraded>在这个步骤中，你将会创建一个可以定位在屏幕中央的布局</h3>
+<h2 is-upgraded><strong>步骤一：添加布局</strong></h2>
+<ol type="1">
+<li>使用 <code>Box</code> 创建一个布局</li>
+<li>添加 <code>Box</code> 中的参数 <code>modifier</code> 和 <code>contentAlignment</code> 参数</li>
+</ol>
+<pre><code language="language-kotlin" class="language-kotlin">Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFFF4F6FC)), // 为了和白色进行区分
+    contentAlignment = Alignment.Center 
+    // 将 Box 中的内容定位相对于父布局（也就是 Box 自己）的中间
+){
+    // 内容
+}
+</code></pre>
+<h3 is-upgraded>到这里，我们已经创建了一个 <code>Box</code> 布局，它将占满整个父布局的空间，并且设置了一个背景颜色</h3>
+<p class="image-container"><img style="width: 300.00px" src="img\f5ea412a833b0a8b.png"></p>
+<aside class="special"><p>虽然现在看上去不像是有居中的样子，但是只要我们在 <code>Box</code> 里面添加一些内容，它将会在中心显示</p>
 </aside>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="第一步" duration="0">
-        <pre><code language="language-kotlin" class="language-kotlin">package com.compose.examples
-import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import android.os.Build
-import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.*
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-
-import com.compose.examples.ui.theme.ExamplesTheme
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.ui.focus.focusModifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-
-class MainActivity : ComponentActivity() {
-
-    @ExperimentalAnimationApi
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ExamplesTheme {
-                Demo()
-            }
-        }
-    }
-}
-
-
-
-@Composable
-fun Demo() {
-
-    var textAlign by remember{ mutableStateOf(TextAlign.Center)}
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF4F6FC)),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Surface(
-                elevation = 14.dp,
-                color = Color.White,
-                shape = RoundedCornerShape(10.dp),
-                modifier = Modifier
-                    .width(320.dp)
-                    .height(300.dp)
-            ) {
-                TopButtons()
-                Column(
-                    modifier = Modifier
-                        .padding(25.dp)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Content{
-                        Spacer(Modifier.padding(vertical = 8.dp))
-                        Text(
-                            text =  &#34;东临碣石，以观沧海。\n&#34; +
-                                    &#34;水何澹澹，山岛竦峙。\n&#34; +
-                                    &#34;树木丛生，百草丰茂。\n&#34; +
-                                    &#34;秋风萧瑟，洪波涌起。\n&#34; +
-                                    &#34;日月之行，若出其中；\n&#34; +
-                                    &#34;星汉灿烂，若出其里。\n&#34; +
-                                    &#34;幸甚至哉，歌以咏志。&#34;,
-                            fontWeight = FontWeight.W700,
-                            style = MaterialTheme.typography.body1,
-                            textAlign = textAlign,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                    }
-                }
-                Row(
-                    horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.Bottom,
-                    modifier = Modifier
-                        .size(18.dp)
-                ) {
-                    IconButton(onClick = {
-                        textAlign = TextAlign.Left
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_left_black_24dp), contentDescription = null)
-                    }
-                    IconButton(onClick = {
-                        textAlign= TextAlign.Center
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_center_black_24dp), contentDescription = null)
-                    }
-                    IconButton(onClick = {
-                        textAlign = TextAlign.Right
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_right_black_24dp), contentDescription = null)
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-@Composable
-fun TopButtons(){
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.Top,
-        modifier = Modifier
-            .padding(start = 10.dp, top = 8.dp)
-    ){
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp),
-            shape = CircleShape,
-            color = Color(0xFFFF6058)
-        ){
-            Box(Modifier.clickable{})
-        }
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp).clickable{},
-            shape = CircleShape,
-            color = Color(0xFFFFBD2E)
-        ){
-            Box(Modifier.clickable{})
-        }
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp).clickable{},
-            shape = CircleShape,
-            color = Color(0xFF27C93F)
-        ){
-            Box(Modifier.clickable{})
-        }
-    }
-}
-
-@Composable
-fun Title(){
-    Text(
-        text = &#34;观沧海&#34;,
-        fontWeight = FontWeight.W900,
-    )
-}
-
-
-@Composable
-fun Content(
-    content: @Composable()() -&gt; Unit
+      <google-codelab-step label="创建内容布局" duration="0">
+        <h3 is-upgraded>在这一步骤中，你将会创建一个内容布局用来显示诗词、按钮等</h3>
+<h2 is-upgraded><strong>步骤一：添加内容布局</strong></h2>
+<ol type="1">
+<li>使用 <code>Surface</code> 来为内容进行填充</li>
+<li>添加 <code>Surface</code> 中的参数，来进行具体设置</li>
+</ol>
+<pre><code language="language-kotlin" class="language-kotlin">Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFFF4F6FC)),
+    contentAlignment = Alignment.Center
 ){
-    Title()
-    content()
+
+    Surface(
+        elevation = 14.dp,
+        color = Color.White,
+        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier
+            .width(320.dp)
+            .height(300.dp)
+    ){
+        // 内容
+    }
 }
 </code></pre>
 

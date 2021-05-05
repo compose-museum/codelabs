@@ -18,187 +18,64 @@ Duration: 1
 
 ![](assets/小试牛刀1/demo.png)
 
-Positive
-: 虽然但是，这个风格并不符合 `Material Design` 的标准，但是好玩（bushi
 
-## 第一步
+## 定位布局
+Duration: 2.5
+
+#### 在这个步骤中，你将会创建一个可以定位在屏幕中央的布局
+
+### **步骤一：添加布局**
+
+
+
+1. 使用 `Box` 创建一个布局
+2. 添加 `Box` 中的参数 `modifier` 和 `contentAlignment` 参数
 
 ```kotlin
-package com.compose.examples
-import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import android.os.Build
-import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.*
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-
-import com.compose.examples.ui.theme.ExamplesTheme
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.ui.focus.focusModifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-
-class MainActivity : ComponentActivity() {
-
-    @ExperimentalAnimationApi
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ExamplesTheme {
-                Demo()
-            }
-        }
-    }
-}
-
-
-
-@Composable
-fun Demo() {
-
-    var textAlign by remember{ mutableStateOf(TextAlign.Center)}
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF4F6FC)),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Surface(
-                elevation = 14.dp,
-                color = Color.White,
-                shape = RoundedCornerShape(10.dp),
-                modifier = Modifier
-                    .width(320.dp)
-                    .height(300.dp)
-            ) {
-                TopButtons()
-                Column(
-                    modifier = Modifier
-                        .padding(25.dp)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Content{
-                        Spacer(Modifier.padding(vertical = 8.dp))
-                        Text(
-                            text =  "东临碣石，以观沧海。\n" +
-                                    "水何澹澹，山岛竦峙。\n" +
-                                    "树木丛生，百草丰茂。\n" +
-                                    "秋风萧瑟，洪波涌起。\n" +
-                                    "日月之行，若出其中；\n" +
-                                    "星汉灿烂，若出其里。\n" +
-                                    "幸甚至哉，歌以咏志。",
-                            fontWeight = FontWeight.W700,
-                            style = MaterialTheme.typography.body1,
-                            textAlign = textAlign,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                    }
-                }
-                Row(
-                    horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.Bottom,
-                    modifier = Modifier
-                        .size(18.dp)
-                ) {
-                    IconButton(onClick = {
-                        textAlign = TextAlign.Left
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_left_black_24dp), contentDescription = null)
-                    }
-                    IconButton(onClick = {
-                        textAlign= TextAlign.Center
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_center_black_24dp), contentDescription = null)
-                    }
-                    IconButton(onClick = {
-                        textAlign = TextAlign.Right
-                    }) {
-                        Icon(painter = painterResource(id = R.drawable.format_align_right_black_24dp), contentDescription = null)
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-@Composable
-fun TopButtons(){
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.Top,
-        modifier = Modifier
-            .padding(start = 10.dp, top = 8.dp)
-    ){
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp),
-            shape = CircleShape,
-            color = Color(0xFFFF6058)
-        ){
-            Box(Modifier.clickable{})
-        }
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp).clickable{},
-            shape = CircleShape,
-            color = Color(0xFFFFBD2E)
-        ){
-            Box(Modifier.clickable{})
-        }
-        Surface(
-            elevation = 5.dp,
-            modifier = Modifier.size(20.dp).clickable{},
-            shape = CircleShape,
-            color = Color(0xFF27C93F)
-        ){
-            Box(Modifier.clickable{})
-        }
-    }
-}
-
-@Composable
-fun Title(){
-    Text(
-        text = "观沧海",
-        fontWeight = FontWeight.W900,
-    )
-}
-
-
-@Composable
-fun Content(
-    content: @Composable()() -> Unit
+Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFFF4F6FC)), // 为了和白色进行区分
+    contentAlignment = Alignment.Center 
+    // 将 Box 中的内容定位相对于父布局（也就是 Box 自己）的中间
 ){
-    Title()
-    content()
+    // 内容
+}
+```
+
+#### 到这里，我们已经创建了一个 `Box` 布局，它将占满整个父布局的空间，并且设置了一个背景颜色
+
+ <img src="assets/小试牛刀1/demo1.png" width = "300" height = "200" align=center />
+
+positive
+: 虽然现在看上去不像是有居中的样子，但是只要我们在 `Box` 里面添加一些内容，它将会在中心显示
+
+## 创建内容布局
+
+#### 在这一步骤中，你将会创建一个内容布局用来显示诗词、按钮等
+
+### **步骤一：添加内容布局**
+
+1. 使用 `Surface` 来为内容进行填充
+2. 添加 `Surface` 中的参数，来进行具体设置
+
+``` kotlin
+Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFFF4F6FC)),
+    contentAlignment = Alignment.Center
+){
+
+    Surface(
+        elevation = 14.dp,
+        color = Color.White,
+        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier
+            .width(320.dp)
+            .height(300.dp)
+    ){
+        // 内容
+    }
 }
 ```
