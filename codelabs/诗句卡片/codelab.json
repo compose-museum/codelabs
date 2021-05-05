@@ -3,13 +3,13 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2021-05-05T15:57:48+02:00",
+  "updated": "2021-05-05T16:04:17+02:00",
   "id": "诗句卡片",
   "duration": 1,
   "title": "诗句卡片",
   "authors": "Nthily",
-  "summary": "备份",
-  "source": "demo.md",
+  "summary": "无",
+  "source": "poems.md",
   "theme": "",
   "status": [
     "published"

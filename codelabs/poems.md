@@ -1,10 +1,10 @@
-summary: 备份
+summary: 无
 id: 诗句卡片
 categories: Android
 tags: android
 status: Published
 authors: Nthily
-Feedback Link: https://github.com/Nthily
+Feedback Link: https://github.com/compose-museum/codelabs/issues/new/choose
 
 # 诗句卡片
 
