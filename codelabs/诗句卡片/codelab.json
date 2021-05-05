@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2021-05-05T16:04:17+02:00",
+  "updated": "2021-05-05T16:09:09+02:00",
   "id": "诗句卡片",
   "duration": 1,
   "title": "诗句卡片",
@@ -20,6 +20,6 @@
   "tags": [
     "android"
   ],
-  "feedback": "https://github.com/Nthily",
+  "feedback": "https://github.com/compose-museum/codelabs/issues/new/choose",
   "url": "诗句卡片"
 }
