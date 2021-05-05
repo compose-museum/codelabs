@@ -1,12 +1,12 @@
 summary: 备份
-id: 小试牛刀1
+id: 诗句卡片
 categories: Android
 tags: android
 status: Published
 authors: Nthily
 Feedback Link: https://github.com/Nthily
 
-# 小试牛刀
+# 诗句卡片
 
 ## 概述
 Duration: 1
@@ -16,7 +16,7 @@ Duration: 1
 - **这节 Codelabs 你将会学到如何制作出以下这个界面**
 - **学习简单的状态管理**
 
-![](assets/小试牛刀1/demo.png)
+![](assets/诗句卡片/demo.png)
 
 
 ## 定位布局
@@ -45,7 +45,7 @@ Box(
 
 #### 到这里，我们已经创建了一个 `Box` 布局，它将占满整个父布局的空间，并且设置了一个背景颜色
 
- <img src="assets/小试牛刀1/demo1.png" width = "300" height = "200" align=center />
+ <img src="assets/诗句卡片/demo1.png" width = "300" height = "200" align=center />
 
 positive
 : 虽然现在看上去不像是有居中的样子，但是只要我们在 `Box` 里面添加一些内容，它将会在中心显示
@@ -79,3 +79,7 @@ Box(
     }
 }
 ```
+
+#### **如果一切正常的话，程序将会运行至如下的效果：**
+
+ <img src="assets/诗句卡片/demo2.png" width = "300" height = "200" align=center />

@@ -3,10 +3,10 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2021-05-05T15:35:59+02:00",
-  "id": "小试牛刀1",
+  "updated": "2021-05-05T15:57:48+02:00",
+  "id": "诗句卡片",
   "duration": 1,
-  "title": "小试牛刀",
+  "title": "诗句卡片",
   "authors": "Nthily",
   "summary": "备份",
   "source": "demo.md",
@@ -21,5 +21,5 @@
     "android"
   ],
   "feedback": "https://github.com/Nthily",
-  "url": "小试牛刀1"
+  "url": "诗句卡片"
 }
